@@ -22,12 +22,13 @@ steps:
   
      # Run Tests
    - script: |
-        pabot --processes 8 TestCases/
+        mkdir  $(Build.ArtifactsStagingDirectory)\TestResults
+        pabot --processes 8  --outputdir $(Build.ArtifactsStagingDirectory)\TestResults TestCases/
      displayName: 'Running Robot Tests'
      
    - task: PublishBuildArtifacts@1
      inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)\TestResults\report.html'
+      ArtifactName: 'HTMLReport'
       publishLocation: 'Container'
      displayName: 'Publishing Results' 
