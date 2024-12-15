@@ -2,33 +2,34 @@ trigger:
   - main
 
 pool:
-   vmImage: 'Windows-latest'
+  vmImage: 'windows-latest'
 
 steps:
-    #Setup Python 
-   - task: UsePythonVersion@0
-     inputs:
+  # Setup Python
+  - task: UsePythonVersion@0
+    inputs:
       versionSpec: '3.x'
       addToPath: true
       architecture: 'x64'
       allowUnstable: false
-     displayName: 'Install Python'
+    displayName: 'Install Python'
 
-     # Install Dependencies
-   - script: |
-        python  -m pip install --upgrade pip
-        pip install -r requirements.txt
-     displayName: 'Install Dependencies'
-  
-     # Run Tests
-   - script: |
-        mkdir  $(Build.ArtifactsStagingDirectory)\TestResults
-        pabot --processes 8  --outputdir $(Build.ArtifactsStagingDirectory)\TestResults TestCases/
-     displayName: 'Running Robot Tests'
-     
-   - task: PublishBuildArtifacts@1
-     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)\TestResults\report.html'
-      ArtifactName: 'HTMLReport'
+  # Install Dependencies
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    displayName: 'Install Dependencies'
+
+  # Run Tests
+  - script: |
+      mkdir $(Build.ArtifactStagingDirectory)\TestResults
+      pabot --processes 8 --outputdir $(Build.ArtifactStagingDirectory)\TestResults TestCases/
+    displayName: 'Running Robot Tests'
+
+  # Publish Results Directory
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)\TestResults'
+      ArtifactName: 'TestResults'
       publishLocation: 'Container'
-     displayName: 'Publishing Results' 
+    displayName: 'Publishing Test Results'
