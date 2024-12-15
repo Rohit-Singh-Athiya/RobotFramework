@@ -22,7 +22,7 @@ steps:
   
      # Run Tests
    - script: |
-        robot TestCases/
+        pabot --processes 8 TestCases/
      displayName: 'Running Robot Tests'
      
    - task: PublishBuildArtifacts@1
