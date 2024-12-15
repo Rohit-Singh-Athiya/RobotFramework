@@ -1,4 +1,4 @@
 RobotFramework==7.1.1
-robotframework-seleniumlibrary==5.0.0
-selenium==3.141.0
-robotframework-pabot==2.10.0
+robotframework-seleniumlibrary==6.6.1
+selenium==4.27.1
+robotframework-pabot==4.0.6
