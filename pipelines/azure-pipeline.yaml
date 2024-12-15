@@ -28,6 +28,7 @@ steps:
 
   # Publish Results Directory
   - task: PublishBuildArtifacts@1
+    condition: always()
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)\TestResults'
       ArtifactName: 'TestResults'
