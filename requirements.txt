@@ -1,0 +1,6 @@
+pip==32.2.1
+RobotFramework==7.1.1
+robotframework-seleniumlibrary==6.0.0
+selenium==4.15.2
+robotframework-pabot==2.10.0
+

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on win32)" generated="2024-12-15T12:48:27.650604" rpa="false" schemaversion="5">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="UserCreation" source="R:\Robot Framework Project\Test Automation Store\TestCases\UserCreation.robot">
+<test id="s1-s1-t1" name="User Registration" line="11">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-12-15T12:48:27.973131" level="INFO">${myDict} = {'fnamedata': 'Rohit', 'lnamedata': 'Singh', 'emailData': 'testEmail', 'phone': '9998887772', 'faxNum': '123456', 'companyInfo': 'Test Company', 'add1': 'address1', 'add2': 'address2', 'cityData': 'Uj...</msg>
+<var>${myDict}</var>
+<arg>fnamedata=Rohit</arg>
+<arg>lnamedata=Singh</arg>
+<arg>emailData=testEmail</arg>
+<arg>phone=9998887772</arg>
+<arg>faxNum=123456</arg>
+<arg>companyInfo=Test Company</arg>
+<arg>add1=address1</arg>
+<arg>add2=address2</arg>
+<arg>cityData=Ujjain</arg>
+<arg>inputState=Bihar</arg>
+<arg>zipCode=456001</arg>
+<arg>selectCountry=India</arg>
+<arg>loginNameData=Rohit</arg>
+<arg>passwordData=Rohit@123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="0.000000"/>
+</kw>
+<kw name="Launch Browser And Open URL" owner="generalKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:27.973131" level="INFO">Opening browser 'Chrome' to base url 'https://automationteststore.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${webBrowser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="4.574089"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-12-15T12:48:32.547728" elapsed="0.040567"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:32.599039" level="INFO">Page title is 'A place to practice your automation skills!'.</msg>
+<arg>${title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-12-15T12:48:32.588295" elapsed="0.010744"/>
+</kw>
+<arg>${AutomationTestStore}</arg>
+<arg>Chrome</arg>
+<arg>A place to practice your automation skills!</arg>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="4.625908"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:32.600432" level="INFO">Clicking element '//*[@id="customer_menu_top"]/li/a'.</msg>
+<arg>${loginOrRegister}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:32.600432" elapsed="0.608439"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${newRegistration}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.208871" elapsed="0.067372"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:33.276243" level="INFO">Clicking element '//*[@id="accountFrm"]/fieldset/button'.</msg>
+<arg>${newRegistration}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.276243" elapsed="0.783868"/>
+</kw>
+<kw name="Generate Email" owner="emailGeneration">
+<msg time="2024-12-15T12:48:34.062211" level="INFO">${email} = 20241215124834@test.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2024-12-15T12:48:34.060111" elapsed="0.002100"/>
+</kw>
+<kw name="Enter Personal Details" owner="registrationKeywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.064731" level="INFO">Typing text 'Rohit' into text field 'id:AccountFrm_firstname'.</msg>
+<arg>${firstName}</arg>
+<arg>${fnamedata}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.064731" elapsed="0.167489"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.232220" level="INFO">Typing text 'Singh' into text field 'id:AccountFrm_lastname'.</msg>
+<arg>${lastname}</arg>
+<arg>${lnamedata}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.232220" elapsed="0.144821"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.381141" level="INFO">Typing text '20241215124834@test.com' into text field 'id:AccountFrm_email'.</msg>
+<arg>${email}</arg>
+<arg>${emailData}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.377041" elapsed="0.173089"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.552639" level="INFO">Typing text '9998887772' into text field 'id:AccountFrm_telephone'.</msg>
+<arg>${telephone}</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.552639" elapsed="0.126086"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.682047" level="INFO">Typing text '123456' into text field 'id:AccountFrm_fax'.</msg>
+<arg>${fax}</arg>
+<arg>${faxNum}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.678725" elapsed="0.136080"/>
+</kw>
+<arg>${myDict['fnamedata']}</arg>
+<arg>${mydict['lnamedata']}</arg>
+<arg>${email}</arg>
+<arg>${mydict['phone']}</arg>
+<arg>${mydict['faxNum']}</arg>
+<doc>Enter personal details for creating account</doc>
+<status status="PASS" start="2024-12-15T12:48:34.062211" elapsed="0.752594"/>
+</kw>
+<kw name="Enter Company Info" owner="registrationKeywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.819375" level="INFO">Typing text 'Test Company' into text field 'id:AccountFrm_company'.</msg>
+<arg>${company}</arg>
+<arg>${companyInfo}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.819375" elapsed="0.134327"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.955648" level="INFO">Typing text 'address1' into text field 'id:AccountFrm_address_1'.</msg>
+<arg>${addressline1}</arg>
+<arg>${add1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.955648" elapsed="0.109975"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.067133" level="INFO">Typing text 'address2' into text field 'id:AccountFrm_address_2'.</msg>
+<arg>${addressline2}</arg>
+<arg>${add2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.065623" elapsed="0.114556"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.182711" level="INFO">Typing text 'Ujjain' into text field 'id:AccountFrm_city'.</msg>
+<arg>${city}</arg>
+<arg>${cityData}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.180179" elapsed="0.113213"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.293392" elapsed="0.000000"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.295814" level="INFO">Selecting options from selection list 'id:AccountFrm_country_id' by label India.</msg>
+<arg>${regCountry}</arg>
+<arg>${selectCountry}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.293392" elapsed="0.108639"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.403555" level="INFO">Clicking element 'id:AccountFrm_zone_id'.</msg>
+<arg>${regState}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.403555" elapsed="0.110902"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.516062" level="INFO">Selecting options from selection list 'id:AccountFrm_zone_id' by label Bihar.</msg>
+<arg>${regState}</arg>
+<arg>${inputState}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.515661" elapsed="0.090055"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.605716" level="INFO">Typing text '456001' into text field 'id:AccountFrm_postcode'.</msg>
+<arg>${postalCode}</arg>
+<arg>${zipCode}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.605716" elapsed="0.134570"/>
+</kw>
+<arg>${myDict['companyInfo']}</arg>
+<arg>${myDict['add1']}</arg>
+<arg>${myDict['add2']}</arg>
+<arg>${myDict['cityData']}</arg>
+<arg>${myDict['selectCountry']}</arg>
+<arg>${myDict['inputState']}</arg>
+<arg>${myDict['zipCode']}</arg>
+<doc>Enter company details for creating account</doc>
+<status status="PASS" start="2024-12-15T12:48:34.814805" elapsed="0.925481"/>
+</kw>
+<kw name="Enter Login Details" owner="registrationKeywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.741807" level="INFO">Typing text 'Rohit' into text field 'id:AccountFrm_loginname'.</msg>
+<arg>${loginName}</arg>
+<arg>${loginNameData}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.741807" elapsed="0.122244"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.864051" level="INFO">Typing text 'Rohit@123' into text field 'id:AccountFrm_password'.</msg>
+<arg>${loginPassword}</arg>
+<arg>${passwordData}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.864051" elapsed="0.116911"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.981985" level="INFO">Typing text 'Rohit@123' into text field 'id:AccountFrm_confirm'.</msg>
+<arg>${loginPasswordConfirm}</arg>
+<arg>${confirmPassData}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.980962" elapsed="0.113676"/>
+</kw>
+<arg>${myDict['loginNameData']}</arg>
+<arg>${myDict['passwordData']}</arg>
+<arg>${myDict['passwordData']}</arg>
+<doc>Enter login details for creating account</doc>
+<status status="PASS" start="2024-12-15T12:48:35.741807" elapsed="0.352831"/>
+</kw>
+<kw name="Newsletter And Privacy" owner="registrationKeywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:36.096450" level="INFO">Clicking element 'id:AccountFrm_newsletter1'.</msg>
+<arg>${newsSubs}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.096450" elapsed="0.117469"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:36.233978" level="INFO">Element 'id:AccountFrm_agree' is displayed.</msg>
+<arg>${confirmPrivacy}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.214325" elapsed="0.019653"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:36.233978" level="INFO">Selecting checkbox 'id:AccountFrm_agree'.</msg>
+<arg>${confirmPrivacy}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.233978" elapsed="0.112354"/>
+</kw>
+<arg>${newsLetterYes}</arg>
+<doc>Opt Newletter details for creating account</doc>
+<status status="PASS" start="2024-12-15T12:48:36.094638" elapsed="0.251694"/>
+</kw>
+<tag>P1</tag>
+<tag>Regression</tag>
+<tag>UserCreation</tag>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="8.373201"/>
+</test>
+<status status="PASS" start="2024-12-15T12:48:27.682241" elapsed="8.664091"/>
+</suite>
+<status status="PASS" start="2024-12-15T12:48:27.676223" elapsed="8.673781"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">P1</stat>
+<stat pass="1" fail="0" skip="0">Regression</stat>
+<stat pass="1" fail="0" skip="0">UserCreation</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="UserCreation">Suites.UserCreation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-15T12:48:27.973131" level="ERROR">Error in file 'R:\Robot Framework Project\Test Automation Store\TestCases\UserCreation.robot' on line 7: Importing library '../PageObjects/locators.robot' failed: ModuleNotFoundError: No module named '.'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  R:\Robot Framework Project\Test Automation Store\.venv\Scripts\robot.exe
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312
+  R:\Robot Framework Project\Test Automation Store\.venv
+  R:\Robot Framework Project\Test Automation Store\.venv\Lib\site-packages</msg>
+</errors>
+</robot>

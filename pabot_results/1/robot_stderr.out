@@ -1,0 +1,11 @@
+[ ERROR ] Error in file 'R:\Robot Framework Project\Test Automation Store\TestCases\UserCreation.robot' on line 7: Importing library '../PageObjects/locators.robot' failed: ModuleNotFoundError: No module named '.'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  R:\Robot Framework Project\Test Automation Store\.venv\Scripts\robot.exe
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312
+  R:\Robot Framework Project\Test Automation Store\.venv
+  R:\Robot Framework Project\Test Automation Store\.venv\Lib\site-packages

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on win32)" generated="2024-12-15T12:48:27.636916" rpa="false" schemaversion="5">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="sanityTest" source="R:\Robot Framework Project\Test Automation Store\TestCases\sanityTest.robot">
+<test id="s1-s1-t1" name="Check If Webpage Is Accessible" line="10">
+<kw name="Launch Browser And Open URL" owner="generalKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:27.967170" level="INFO">Opening browser 'Chrome' to base url 'https://automationteststore.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${webBrowser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-15T12:48:27.967170" elapsed="5.168187"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.135357" elapsed="0.100257"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:33.257353" level="INFO">Page title is 'A place to practice your automation skills!'.</msg>
+<arg>${title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.235614" elapsed="0.021739"/>
+</kw>
+<arg>${AutomationTestStore}</arg>
+<arg>Chrome</arg>
+<arg>A place to practice your automation skills!</arg>
+<status status="PASS" start="2024-12-15T12:48:27.953146" elapsed="5.304207"/>
+</kw>
+<status status="PASS" start="2024-12-15T12:48:27.953146" elapsed="5.304207"/>
+</test>
+<status status="PASS" start="2024-12-15T12:48:27.682241" elapsed="5.575112"/>
+</suite>
+<status status="PASS" start="2024-12-15T12:48:27.666565" elapsed="5.595302"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="sanityTest">Suites.sanityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

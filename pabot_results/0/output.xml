@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on win32)" generated="2024-12-15T12:48:27.636916" rpa="false" schemaversion="5">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Checkout" source="R:\Robot Framework Project\Test Automation Store\TestCases\Checkout.robot">
+<test id="s1-s1-t1" name="End To End Flow For Buying A Product" line="14">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-12-15T12:48:27.973131" level="INFO">${myDict} = {'fnamedata': 'Rohit', 'lnamedata': 'Singh', 'emailData': 'testEmail', 'phone': '9998887772', 'faxNum': '123456', 'companyInfo': 'Test Company', 'add1': 'address1', 'add2': 'address2', 'cityData': 'Uj...</msg>
+<var>${myDict}</var>
+<arg>fnamedata=Rohit</arg>
+<arg>lnamedata=Singh</arg>
+<arg>emailData=testEmail</arg>
+<arg>phone=9998887772</arg>
+<arg>faxNum=123456</arg>
+<arg>companyInfo=Test Company</arg>
+<arg>add1=address1</arg>
+<arg>add2=address2</arg>
+<arg>cityData=Ujjain</arg>
+<arg>inputState=Bihar</arg>
+<arg>zipCode=456001</arg>
+<arg>selectCountry=India</arg>
+<arg>loginNameData=Rohit</arg>
+<arg>passwordData=Rohit@123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="0.000000"/>
+</kw>
+<kw name="Launch Browser And Open URL" owner="generalKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:27.973131" level="INFO">Opening browser 'Chrome' to base url 'https://automationteststore.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${webBrowser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="5.159877"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.133008" elapsed="0.098722"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:33.251549" level="INFO">Page title is 'A place to practice your automation skills!'.</msg>
+<arg>${title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.233318" elapsed="0.018231"/>
+</kw>
+<arg>${AutomationTestStore}</arg>
+<arg>Chrome</arg>
+<arg>A place to practice your automation skills!</arg>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="5.278418"/>
+</kw>
+<kw name="Select Product and Price" owner="createPaymentKeywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:33.252580" level="INFO">Clicking element '//a[@data-id="66"]'.</msg>
+<arg>${productLocator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.252580" elapsed="0.283624"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:33.574301" level="INFO">${pricefromUI} = $38.00</msg>
+<var>${pricefromUI}</var>
+<arg>${priceLocator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.536204" elapsed="0.038097"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${pricefromUI}</arg>
+<arg>${price}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.574301" elapsed="0.000000"/>
+</kw>
+<arg>${product1}</arg>
+<arg>${price1}</arg>
+<arg>$38.00</arg>
+<status status="PASS" start="2024-12-15T12:48:33.252580" elapsed="0.321721"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:33.574301" level="INFO">Clicking element '//*[@id="main_menu_top"]/li[3]'.</msg>
+<arg>${cart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:33.574301" elapsed="0.625385"/>
+</kw>
+<kw name="Complete Country Details" owner="createPaymentKeywords">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.204049" level="INFO">Selecting options from selection list 'id:estimate_country' by label India.</msg>
+<arg>${country}</arg>
+<arg>${cartCountry}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.203509" elapsed="0.155855"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:34.359364" level="INFO">Clicking element 'id:estimate_country_zones'.</msg>
+<arg>${state}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.359364" elapsed="0.177186"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-12-15T12:48:35.539377" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-12-15T12:48:34.538884" elapsed="1.000493"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.539377" level="INFO">Selecting options from selection list 'id:estimate_country_zones' by label Bihar.</msg>
+<arg>${state}</arg>
+<arg>${cartState}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.539377" elapsed="0.076101"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.616551" level="INFO">Typing text '456001' into text field 'id:estimate_postcode'.</msg>
+<arg>${cartPostalCode}</arg>
+<arg>${cartZipCode}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.615478" elapsed="0.143728"/>
+</kw>
+<arg>India</arg>
+<arg>Bihar</arg>
+<arg>456001</arg>
+<status status="PASS" start="2024-12-15T12:48:34.202736" elapsed="1.556470"/>
+</kw>
+<kw name="Check Product Amount" owner="createPaymentKeywords">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:35.794792" level="INFO">${fetchProductAmt} = $38.00</msg>
+<var>${fetchProductAmt}</var>
+<arg>${productPrice}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.759206" elapsed="0.035586"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${fetchProductAmt}</arg>
+<arg>${proAmt}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.794792" elapsed="0.000000"/>
+</kw>
+<arg>$38.00</arg>
+<status status="PASS" start="2024-12-15T12:48:35.759206" elapsed="0.035586"/>
+</kw>
+<kw name="Check Shipping Amount" owner="createPaymentKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${shipmentPrice}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-15T12:48:35.794792" elapsed="0.244293"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:36.059837" level="INFO">${ship} = $2.00</msg>
+<var>${ship}</var>
+<arg>${shipmentPrice}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.039085" elapsed="0.020752"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${ship}</arg>
+<arg>${shippingAmt}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.059837" elapsed="0.000000"/>
+</kw>
+<arg>$2.00</arg>
+<status status="PASS" start="2024-12-15T12:48:35.794792" elapsed="0.265045"/>
+</kw>
+<kw name="Check Total Amount" owner="createPaymentKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${totalPrice}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.059837" elapsed="0.026284"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-12-15T12:48:36.106955" level="INFO">${total} = $40.00</msg>
+<var>${total}</var>
+<arg>${totalPrice}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.086121" elapsed="0.020834"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${total}</arg>
+<arg>${totalAmt}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-12-15T12:48:36.106955" elapsed="0.000000"/>
+</kw>
+<arg>$40.00</arg>
+<status status="PASS" start="2024-12-15T12:48:36.059837" elapsed="0.047118"/>
+</kw>
+<tag>P1</tag>
+<tag>Regression</tag>
+<status status="PASS" start="2024-12-15T12:48:27.973131" elapsed="8.133824"/>
+</test>
+<status status="PASS" start="2024-12-15T12:48:27.682241" elapsed="8.424714"/>
+</suite>
+<status status="PASS" start="2024-12-15T12:48:27.666565" elapsed="8.444572"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">P1</stat>
+<stat pass="1" fail="0" skip="0">Regression</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Checkout">Suites.Checkout</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-15T12:48:27.967170" level="ERROR">Error in file 'R:\Robot Framework Project\Test Automation Store\TestCases\Checkout.robot' on line 7: Importing library '../PageObjects/locators.robot' failed: ModuleNotFoundError: No module named '.'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  R:\Robot Framework Project\Test Automation Store\.venv\Scripts\robot.exe
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\rohit\AppData\Local\Programs\Python\Python312
+  R:\Robot Framework Project\Test Automation Store\.venv
+  R:\Robot Framework Project\Test Automation Store\.venv\Lib\site-packages</msg>
+</errors>
+</robot>
