@@ -22,7 +22,7 @@ steps:
   
      # Run Tests
    - script: |
-        robot tests/*.robot
+        robot tests/
      displayName: 'Running Robot Tests'
      
    - task: PublishBuildArtifacts@1
