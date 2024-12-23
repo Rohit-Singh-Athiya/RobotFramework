@@ -36,6 +36,7 @@ steps:
     displayName: 'Publishing Test Results'
 
   - task: PublishTestResults@2
+    continueOnError: true
     inputs:
      testResultsFormat: 'JUnit'
      testResultsFiles: 'output.xml'
