@@ -4,43 +4,53 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+variables:
+  testResultsDir: '$(Build.ArtifactStagingDirectory)\TestResults'
+
 steps:
   # Setup Python
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '3.x'
       addToPath: true
-      architecture: 'x64'
-      allowUnstable: false
     displayName: 'Install Python'
 
   # Install Dependencies
   - script: |
+      if not exist requirements.txt (
+        echo "Error: requirements.txt not found!" && exit /b 1
+      )
       python -m pip install --upgrade pip
       pip install -r requirements.txt
     displayName: 'Install Dependencies'
 
   # Run Tests
   - script: |
-      mkdir $(Build.ArtifactStagingDirectory)\TestResults
-      pabot --processes 8 --outputdir $(Build.ArtifactStagingDirectory)\TestResults TestCases/
+      mkdir $(testResultsDir)
+      pabot --processes 8 --outputdir $(testResultsDir) --merge TestCases/
     displayName: 'Running Robot Tests'
+
+  # Convert to JUnit Format (Optional)
+  - script: |
+      pip install robotframework-junitxml
+      rebot --xunit $(testResultsDir)\output.xml
+    displayName: 'Convert Robot Results to JUnit Format'
 
   # Publish Results Directory
   - task: PublishBuildArtifacts@1
     condition: always()
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)\TestResults'
+      PathtoPublish: '$(testResultsDir)'
       ArtifactName: 'TestResults'
       publishLocation: 'Container'
     displayName: 'Publishing Test Results'
 
+  # Publish XML Reports
   - task: PublishTestResults@2
-    condition: always()
     inputs:
-     testResultsFormat: 'JUnit'
-     testResultsFiles: 'output.xml'
-     searchFolder: '$(Build.ArtifactStagingDirectory)\TestResults'
-     mergeTestResults: true
-     failTaskOnFailedTests: true
-    displayName: 'Publish XMl Reports' 
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'output.xml'
+      searchFolder: $(testResultsDir)
+      mergeTestResults: true
+      failTaskOnFailedTests: true
+    displayName: 'Publish JUnit Reports'
