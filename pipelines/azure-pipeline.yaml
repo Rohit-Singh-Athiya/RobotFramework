@@ -34,3 +34,10 @@ steps:
       ArtifactName: 'TestResults'
       publishLocation: 'Container'
     displayName: 'Publishing Test Results'
+
+  - task: PublishTestResults@2
+    inputs:
+     testResultsFormat: 'JUnit'
+     testResultsFiles: 'output.xml'
+     searchFolder: $(Build.ArtifactStagingDirectory)\TestResults
+    displayName: 'Publish XMl Reports' 
