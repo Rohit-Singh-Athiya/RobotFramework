@@ -34,6 +34,7 @@ steps:
   - script: |
       pip install robotframework-junitxml
       rebot --xunit $(testResultsDir)\output.xml
+    condition: always()  
     displayName: 'Convert Robot Results to JUnit Format'
 
   # Publish Results Directory
@@ -47,6 +48,7 @@ steps:
 
   # Publish XML Reports
   - task: PublishTestResults@2
+    condition: always()
     inputs:
       testResultsFormat: 'JUnit'
       testResultsFiles: 'output.xml'
