@@ -5,7 +5,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  testResultsDir: '$(Build.ArtifactStagingDirectory)'
+  testResultsDir: '$(Build.ArtifactStagingDirectory)\TestResults'
 
 steps:
   # Setup Python
@@ -27,8 +27,14 @@ steps:
   # Run Tests
   - script: |
       mkdir $(testResultsDir)
-      pabot --processes 8 --outputdir $(testResultsDir)  --report ${reportFileName}  --output ${outputFileName} -x outputxunit.xml  /TestCases
+      pabot --processes 8 --outputdir $(testResultsDir) --output output.xml --report report.html --log log.html -x outputxunit.xml TestCases/
     displayName: 'Running Robot Tests'
+
+  # Debug Results Directory
+  - script: |
+      echo "Contents of $(testResultsDir):"
+      dir $(testResultsDir) /s
+    displayName: 'Debug Test Results Directory'
 
   # Publish Results Directory
   - task: PublishBuildArtifacts@1
@@ -44,7 +50,7 @@ steps:
     condition: always()
     inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: '${testResultsDir}/**/outputxunit.xml'
+      testResultsFiles: '$(testResultsDir)\outputxunit.xml'
       mergeTestResults: true
       failTaskOnFailedTests: true
     displayName: 'Publish JUnit Reports'
