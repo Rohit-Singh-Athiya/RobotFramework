@@ -27,7 +27,7 @@ steps:
   # Run Tests
   - script: |
       mkdir $(testResultsDir)
-      pabot --processes 8 --outputdir $(testResultsDir) --merge TestCases/
+      pabot --processes 8 --outputdir $(testResultsDir)
     displayName: 'Running Robot Tests'
 
   # Convert to JUnit Format (Optional)
