@@ -36,6 +36,7 @@ steps:
     displayName: 'Publishing Test Results'
 
   - task: PublishTestResults@2
+    condition: always()
     inputs:
      testResultsFormat: 'JUnit'
      testResultsFiles: 'output.xml'
