@@ -40,7 +40,7 @@ steps:
     inputs:
      testResultsFormat: 'JUnit'
      testResultsFiles: 'output.xml'
-     searchFolder: $(Build.ArtifactStagingDirectory)\TestResults
+     searchFolder: '$(Build.ArtifactStagingDirectory)\TestResults'
      mergeTestResults: true
      failTaskOnFailedTests: true
     displayName: 'Publish XMl Reports' 
