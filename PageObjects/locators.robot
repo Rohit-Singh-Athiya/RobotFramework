@@ -1,42 +1,65 @@
 *** Variables ***
 # HomePage
-${loginOrRegister}          //*[@id="customer_menu_top"]/li/a
-${cart}                     //*[@id="main_menu_top"]/li[3]
+${signIn}                   //div[@id="MenuContent"]//a[2]
+${fishMenu}                 //*[@id="SidebarContent"]/a[1]
+${dogsMenu}                 //*[@id="SidebarContent"]/a[2]
+${catsMenu}                 //*[@id="SidebarContent"]/a[3]
+${reptilesMenu}             //*[@id="SidebarContent"]/a[4]
+${birdsMenu}                //*[@id="SidebarContent"]/a[5]
 
+# Type
+${goldenRetriever}          //*[@id="Catalog"]/table/tbody/tr[5]/td[1]/a
 
-# Product 1
-${product1}                 //a[@data-id="66"]
-${price1}                   //*[@id="block_frame_latest_1770"]//div[3]/div[2]/div[3]/div/div
-${country}                  id:estimate_country
-${state}                    id:estimate_country_zones
-${cartPostalCode}           id:estimate_postcode
+#Checkout
+${addToCart}                //*[@id="Catalog"]/table/tbody/tr[2]/td[5]/a
+${quantity}                 name:EST-28
+${updateCart}               name:updateCartQuantities
+${proceedToCheckout}        //*[@id="Cart"]/a
 
-# Cart
-${productPrice}               //*[@id="cart"]//div//tbody//td[6]
-${shipmentPrice}              //*[@id="totals_table"]//tr[2]//td[2]/span
-${totalPrice}                 //*[@id="totals_table"]//tr[3]/td[2]/span
-${cartCheckout2}              id:cart_checkout2
+# Sign In Page
+${register}                 //*[@id="Catalog"]/a
+${login}                    name:signon
 
-# Login Or Registration
-${newRegistration}         //*[@id="accountFrm"]/fieldset/button
+# Login Page
+${loginUserName}        name:username
+${loginPassword}        name:password
+${loginSubmit}          name:signon
 
+# Registration Page
+${userId}               name:username
+${firstName}            name:account.firstName
+${lastName}             name:account.lastName
+${email}                name:account.email
+${telephone}            name:account.phone
+${addressline1}         name:account.address1
+${addressline2}         name:account.address2
+${city}                 name:account.city
+${regState}             name:account.state
+${postalCode}           name:account.zip
+${regCountry}           name:account.country
+${regPassword}        name:password
+${loginPasswordConfirm}    name:repeatedPassword
+${submitNewAccount}     name:newAccount
 
-# Registration Form
-${firstName}            id:AccountFrm_firstname
-${lastName}             id:AccountFrm_lastname
-${email}                id:AccountFrm_email
-${telephone}            id:AccountFrm_telephone
-${fax}                  id:AccountFrm_fax
-${company}              id:AccountFrm_company
-${addressline1}         id:AccountFrm_address_1
-${addressline2}         id:AccountFrm_address_2
-${city}                 id:AccountFrm_city
-${regState}                id:AccountFrm_zone_id
-${postalCode}           id:AccountFrm_postcode
-${regCountry}              id:AccountFrm_country_id
-${loginName}            id:AccountFrm_loginname
-${loginPassword}        id:AccountFrm_password
-${loginPasswordConfirm}    id:AccountFrm_confirm
-${newsLetterYes}        id:AccountFrm_newsletter1
-${confirmPrivacy}       id:AccountFrm_agree
-${continueRegistration}   xpath://button[@title='Continue']
+# Profile Info
+${language}             name:account.languagePreference
+${productCategory}      name:account.favouriteCategoryId
+${enableMyList}         name:account.listOption
+${enableMyBanner}       name:account.bannerOption
+
+# Payment Details
+${cardType}             name:order.cardType
+${cardNumber}           name:order.creditCard
+${expiryDate}           name:order.expiryDate
+
+# Billing Details
+${orderFirstName}       name:order.billToFirstName
+${orderLastName}        name:order.billToLastName
+${orderAdd1}            name:order.billAddress1
+${orderAdd2}            name:order.billAddress2
+${orderCity}            name:order.billCity
+${orderState}           name:order.billState
+${orderZip}             name:order.billZip
+${orderCountry}         name:order.billCountry
+${submitOrder}          name:newOrder
+${orderConfirm}         //*[@id="Catalog"]/a

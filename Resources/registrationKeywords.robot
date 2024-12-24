@@ -8,27 +8,26 @@ Resource   ../PageObjects/urls.robot
 
 *** Keywords ***
 
-Enter Personal Details
-      [Documentation]       Enter personal details for creating account
-      [Arguments]    ${fnamedata}    ${lnamedata}    ${emailData}    ${phone}    ${faxNum}
-       input text    ${firstName}    ${fnamedata}
-       input text    ${lastname}     ${lnamedata}
-       input text    ${email}        ${emailData}
-       input text    ${telephone}    ${phone}
-       input text    ${fax}          ${faxNum}
+Enter User Details
+      [Documentation]       Enter User details for creating account
+      [Arguments]    ${userIdData}       ${password}
+       input text    ${userId}       ${userIdData}
+       input text    ${regPassword}   ${password}
+       input text    ${loginPasswordConfirm}      ${password}
 
-Enter Company Info
+Enter Account Info
       [Documentation]       Enter company details for creating account
-      [Arguments]     ${companyInfo}     ${add1}     ${add2}     ${cityData}    ${selectCountry}    ${inputState}    ${zipCode}
-       input text    ${company}      ${companyInfo}
-       input text    ${addressline1}        ${add1}
-       input text    ${addressline2}        ${add2}
-       input text    ${city}          ${cityData}
-       set selenium implicit wait    1s
-       select from list by label    ${regCountry}     ${selectCountry}
-       click element    ${regState}
-       select from list by label    ${regState}      ${inputState}
-       input text    ${postalCode}   ${zipCode}
+      [Arguments]    ${fnameData}     ${lNameData}     ${emailData}     ${phoneData}    ${add1Data}    ${add2Data}    ${cityData}    ${stateData}      ${zipData}    ${countryData}
+       input text    ${firstName}       ${fnameData}
+       input text    ${lastName}        ${lNameData}
+       input text    ${email}           ${emailData}
+       input text    ${telephone}       ${phoneData}
+       input text    ${addressline1}          ${add1Data}
+       input text    ${addressline2}          ${add2Data}
+       input text    ${city}            ${cityData}
+       input text    ${regState}        ${stateData}
+       input text    ${postalCode}      ${zipData}
+       input text    ${regCountry}      ${countryData}
 
 
 Enter Login Details
@@ -38,9 +37,10 @@ Enter Login Details
        input text    ${loginPassword}    ${passwordData}
        input text    ${loginPasswordConfirm}    ${confirmPassData}
 
-Newsletter And Privacy
-      [Documentation]       Opt Newletter details for creating account
-      [Arguments]           ${newsSubs}
-       click element     ${newsSubs}
-       element should be visible    ${confirmPrivacy}
-       select checkbox    ${confirmPrivacy}
+Select Profile Details
+      [Documentation]       Select Profile options
+      [Arguments]          ${langData}      ${categoryData}
+       select from list by value    ${language}         ${langData}
+       select from list by value    ${productCategory}  ${categoryData}
+       select checkbox    ${enableMyList}
+       select checkbox    ${enableMyBanner}

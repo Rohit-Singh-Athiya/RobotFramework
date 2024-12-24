@@ -1,2 +1,2 @@
 *** Variables ***
-${AutomationTestStore}          https://automationteststore.com/
+${petStore}          https://petstore.octoperf.com/actions/Catalog.action

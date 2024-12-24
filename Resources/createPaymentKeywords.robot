@@ -7,34 +7,37 @@ Resource   ../PageObjects/locators.robot
 
 *** Keywords ***
 
-Select Product and Price
-    [Arguments]     ${productLocator}       ${priceLocator}         ${price}
-    click element   ${productLocator}
-    ${pricefromUI}=    get text    ${priceLocator}
-    should be equal as strings     ${pricefromUI}     ${price}
+Select Menu and Type
+    [Arguments]     ${Menu}       ${breed}
+    click element   ${Menu}
+    click element   ${breed}
 
-Complete Country Details
-    [Arguments]    ${cartCountry}   ${cartState}    ${cartZipCode}
-    select from list by label     ${country}    ${cartCountry}
-    click element   ${state}
-    sleep    1s
-    select from list by label     ${state}      ${cartState}
-    input text      ${cartPostalCode}         ${cartZipCode}
+Update Shopping Cart
+    [Arguments]    ${cartQty}   ${cartState}    ${cartZipCode}
+    clear element text    ${quantity}
+    input text    ${quantity}       ${cartQty}
+    click element   ${updateCart}
+    reload page
+    click element    ${proceedToCheckout}
 
-Check Product Amount
-    [Arguments]    ${proAmt}
-    ${fetchProductAmt}=    get text    ${productPrice}
-    should be equal as strings    ${fetchProductAmt}    ${proAmt}
+Enter Payment Details
+    [Arguments]    ${cardTypeValue}     ${cardNumberData}       ${expiryDateData}
+    select from list by value    ${cardType}    ${cardTypeValue}
+    input text    ${cardNumber}     ${cardNumberData}
+    input text    ${expiryDate}     ${expiryDateData}
 
-Check Shipping Amount
-    [Arguments]    ${shippingAmt}
-    wait until element is visible        ${shipmentPrice}
-    ${ship}=    get text    ${shipmentPrice}
-    should be equal as strings    ${ship}    ${shippingAmt}
+Enter Billing Details
+    [Arguments]    ${fNameData}     ${lNameData}       ${add1Data}      ${add2Data}     ${cityData}     ${stateData}    ${zipData}   ${countryData}
+    input text      ${orderFirstName}        ${fNameData}
+    input text      ${orderLastName}        ${lNameData}
+    input text      ${orderAdd1}        ${add1Data}
+    input text      ${orderAdd2}        ${add2Data}
+    input text      ${orderCity}        ${cityData}
+    input text      ${orderState}        ${stateData}
+    input text      ${orderZip}        ${zipData}
+    input text      ${orderCountry}        ${countryData}
 
-Check Total Amount
-    [Arguments]    ${totalAmt}
-    wait until element is visible        ${totalPrice}
-    ${total}=    get text    ${totalPrice}
-    should be equal as strings   ${total}         ${totalAmt}
-
+Submit and verify order status
+    click element   ${submitOrder}
+    click element   ${orderConfirm}
+    page should contain      Thank you, your order has been submitted.
