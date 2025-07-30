@@ -122,6 +122,10 @@ Python-based keywords are in `helperMethods/` (e.g., `generate_email` for unique
 
 ---
 
+## Monitoring Dashboard 
+<img width="2846" height="1496" alt="image" src="https://github.com/user-attachments/assets/61f2cafa-a12c-4861-8e2d-d7ec1f3ef888" />
+
+
 ## Contributing
 
 Contributions are welcome! Please open issues or submit pull requests for improvements, new features, or bug fixes. For major changes, open an issue first to discuss your proposal.
